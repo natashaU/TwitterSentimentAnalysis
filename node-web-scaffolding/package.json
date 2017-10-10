@@ -1,0 +1,54 @@
+{
+  "_from": "node-web-scaffolding",
+  "_id": "node-web-scaffolding@1.0.14",
+  "_inBundle": false,
+  "_integrity": "sha1-jL6mnCiEBF7foCU7zvv2np0lawc=",
+  "_location": "/node-web-scaffolding",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "node-web-scaffolding",
+    "name": "node-web-scaffolding",
+    "escapedName": "node-web-scaffolding",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/node-web-scaffolding/-/node-web-scaffolding-1.0.14.tgz",
+  "_shasum": "8cbea69c2884045edfa0253bcefbf69e9d256b07",
+  "_spec": "node-web-scaffolding",
+  "_where": "/Users/student/wdi/unit-4/homework/twitterapp",
+  "author": {
+    "name": "Thomas Lanteigne"
+  },
+  "bugs": {
+    "url": "https://github.com/boggan/node-web-scaffolding/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "scaffolding to start a web application + REST api with Nodejs",
+  "homepage": "https://github.com/boggan/node-web-scaffolding#readme",
+  "keywords": [
+    "NodeJS",
+    "WebServer",
+    "Restify",
+    "Scaffolding"
+  ],
+  "license": "MIT",
+  "main": "main.js",
+  "name": "node-web-scaffolding",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boggan/node-web-scaffolding.git"
+  },
+  "scripts": {
+    "postinstall": "node scripts/postinstall.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.14"
+}
