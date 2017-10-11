@@ -5,6 +5,7 @@ module.exports = {
 
 
   index(req, res) {
+    console.log("getting index")
     tweetDB.findAll()
      .then(tweets => {
        res.json({
@@ -38,7 +39,7 @@ module.exports = {
       positive: req.body.positive,
       negative: req.body.negative,
     })
-    .then(score => {
+    .then(tweet => {
       res.json({message: 'ok', data: { tweet }});
     })
     .catch(err => {
