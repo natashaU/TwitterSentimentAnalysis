@@ -5,6 +5,7 @@ import axios from 'axios';
 import Tweet from './partials/Tweet';
 import Loading from './partials/Loading';
 import SingleTweet from './SingleTweet';
+import {Link} from 'react-router-dom';
 
 class TweetList extends Component {
   constructor() {
@@ -44,6 +45,7 @@ componentDidMount(){
     return (
       <div className="tweetlist">
        {this.renderTweetList()}
+       <Link id="tweetLink" to={`/home`}>Home</Link>
       </div>
     );
   };

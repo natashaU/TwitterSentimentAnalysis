@@ -7,7 +7,11 @@ tweetsRouter.route('/:id')
 .delete(controller.destroy);
 
 tweetsRouter.route('/')
-.get(controller.index)
-.post(controller.create);
+//.get(controller.index)
+//.post(controller.create);
+.get(controller.getApi)
+
+//tweetsRouter.route('/test')
+//.post(controller.getApi)
 
 module.exports = tweetsRouter;
