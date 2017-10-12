@@ -4,7 +4,7 @@ import {Route, Redirect, Switch, BrowserRouter as Router} from 'react-router-dom
 
 
 
-//import Home from './components/Home';
+import Home from './components/Home';
 import TweetForm from './components/TweetForm';
 import About from './components/About';
 import TweetList from './components/TweetList';
@@ -31,7 +31,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/twitterhandles/:id' component={SingleTweet} />
             <Route exact path='/twitterhandles' component={TweetList} />
-            <Route exact path='/' component={TweetForm} />
+            <Route exact path='/' component={Home} />
             <Route exact path='/about' component={About} />
             <Redirect to='/' />
           </Switch>
@@ -45,6 +45,7 @@ class App extends Component {
 
 export default App;
 
+// <Route exact path='/' component={TweetForm} />
 // add more components later to put in the switch:
 //<Route exact path='/' component={FaceForm} />
 //<Route exact path='/add' component={Home} />
