@@ -45,7 +45,9 @@ User.findByUserName(req.body.username)
 
 
 
+// input (form), two forms (log in and register) req.body.username,
 
+// sending info from form to THIS route
 
 
 module.exports = usersRouter;

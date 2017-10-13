@@ -15,10 +15,11 @@ class Home extends Component {
 constructor(props) {
     super(props);
     this.state = {
-        result: '', // api data
+        //resultPositive: '', // api data
+        resultNegative: [],
         inputTwitterHandle: '', // sending user twitter handle to api
         showLoader: false, // loader to wait for API
-        tweets: [], // the data we get back from the api, list of tweets
+        tweets: [], // the data we get back from the api, list of tweet analyzations
 
         inputTwitterHandleValue: '', // twitter handle to save in form
         inputPositiveValue: '', // positive value to save in form
@@ -33,7 +34,7 @@ constructor(props) {
     this.handleInputFormSubmit = this.handleInputFormSubmit.bind(this);
     // this is for the form submit from the database
 
-    //this.handleTwitterFormSubmit = this.handleTwitterFormSubmit.bind(this);
+    this.handleTwitterFormSubmit = this.handleTwitterFormSubmit.bind(this);
     // this is for when the user enters in their twitter handle to send to API
 
     this.handleInputResultChange = this.handleInputResultChange.bind(this);
@@ -53,6 +54,7 @@ constructor(props) {
     this.setState({
       inputTwitterHandleValue: event.target.value
     });
+     console.log(this.state,'this is changing the state<------')
   }
 
    handleInputPositiveChange(event) {
@@ -76,33 +78,102 @@ handleInputResultChange(event) {
 
 
 
-/*handleTwitterFormSubmit(event) {
-  console.log(this.state.inputTwitterHandleApi)
+handleTwitterFormSubmit(event) {
+  console.log(this.state.inputTwitterHandleValue)
+  console.log(this.state,'this is the state in home.js<------')
   event.preventDefault();
   this.setState ({
     showLoader: true,
   })
-  axios.post('http://localhost:3001/api/scores/test', {
-    inputurl: this.state.inputimg
+  axios.post('http://localhost:3001/api/tweets/analyze', {
+    inputTwitterHandle: this.state.inputTwitterHandleValue
   }).then(res => {
     this.setState ({
       showLoader: false,
-      faceBorder: true
 
     })
     console.log(res.data.data)
-    const result = calculateResult(res.data.data)
-     console.log(result)
-    this.setState({
-      result: result[0],
-      sentence: result[1]
-    })
+    var results = res.data.data
+
+    for (var key in results) {
+      let total_words = [];
+      if (key == "is negative about") {
+        //console.log(results[key]);
+        var myResults = results[key]
+
+        for (var item in myResults) {
+          //console.log(myResults[item])
+          var worstList = myResults[item]
+          //console.log(Object.keys(worstList))
+          var word_array = Object.keys(worstList)
+          //console.log("each word array", word_array)
+
+          total_words = total_words.concat(word_array)
+          //console.log("each total", total_words)
+
+          //var wordList = myResults[item];
+          //console.log(Object.keys(wordList))
+          }
+          console.log("final", total_words)
+        }
+
+        //console.log("final", total_words)
+        //var myResults = results[key];
+        //myResults.map(item => {
+         // console.log(item.key)
+        //})
+
+        //(for var key in testing) {
+        //  console.log(testing[key])
+        //}
+
+        //for (var word in results[key]) {
+          //console.log(word)
+         // for (var item in word) {
+          //  console.log(word[item])
+          //}
+        //}
+
+      //}
+    }
+
+
+
+    // var propValue;
+//for(var keyName in obj) {
+   // keyname = obj[keyName]
+
+    //console.log(keyname,key value);
+//}
+
+
+    //const resultPos = res.data.positiveData
+
+    //console.log(res.data.negativeData)
+    //const resultNeg = res.data.negativeData
+    //const result = calculateResult(res.data.data)
+     //console.log(result)
+    //this.setState({
+      //resultPositive: resultPos,
+     // resultNegative: resultNeg
+    //})
   }).catch(err => {
-  this.setState({showLoader: false, sentence: "Unable to Process. Please upload a valid twitter handle."})
+
   console.log(err)
   })
-} */
+}
 
+
+//for (var key in output.result) {
+             //  //console.log(key)
+             //  if (key == "is positive about") {
+             //    console.log(output.result[key]);
+             //    var positiveData = output.result[key]
+
+             //  } if (key == "is negative about") {
+             //    console.log(output.result[key]);
+             //    var negativeData = output.result[key]
+             //  }
 
 
    handleInputFormSubmit(event) {
@@ -146,7 +217,7 @@ handleInputResultChange(event) {
       <div>
         <div>
           <h3>Analyze your twitter profile!</h3>
-          <TwitterHandleForm handleTwitterHandleFormSubmit={this.handleTwitterFormSubmit}
+          <TwitterHandleForm handleTwitterFormSubmit={this.handleTwitterFormSubmit}
                      handleInputTwitterHandleChange={this.handleInputTwitterHandleChange}
                      inputTwitterHandleValue={this.state.inputTwitterHandleValue}
                      />

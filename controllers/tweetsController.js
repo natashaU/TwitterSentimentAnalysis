@@ -1,9 +1,7 @@
 const tweetDB = require('../models/tweetDB');
 const Algorithmia = require("algorithmia");
 
-//var api_key = process.env.API_KEY // PLEASE COPY AND PASTE MY API KEY HERE!!
-
-// IF YOU DONT DO THIS THE APP WILL NOT WORK!!!.
+//var api_key = process.env.API_KEY //
 
 //var client = algorithmia(api_key);
 
@@ -11,25 +9,36 @@ module.exports = {
 
   getApi(req, res) {
   console.log("getting api, inside function")
+  console.log(req.body.inputTwitterHandle)
   let input =  {
-    "query": "natty_t_ice",
-    "auth": {
-        key here
+    "query": req.body.inputTwitterHandle,
+    "auth":
            .algo("algo://diego/AnalyzeTwitterUser/0.1.6")
+
            .pipe(input)
+
            .then(function(output) {
              console.log(output);
+             console.log('still good here 3')
              //console.log(output.result.following)
-             for (var key in output.result) {
-              //console.log(key)
-              if (key == "is positive about") {
-                console.log(output.result[key])
-              } if (key == "is negative about") {
-                console.log(output.result[key])
-              }
+             // for (var key in output.result) {
+             //  //console.log(key)
+             //  if (key == "is positive about") {
+             //    console.log(output.result[key]);
+             //    var positiveData = output.result[key]
 
-             }
+             //  } if (key == "is negative about") {
+             //    console.log(output.result[key]);
+             //    var negativeData = output.result[key]
+             //  }
+             // res.json({negativeData: negativeData, positiveData: positiveData});
+              //console.log(negativeData)
+                 res.json({data:output.result})
+             //}
            });
+
+           //var responseData = response.get().results[0].emotions;
+             //res.json({data: responseData});
 
   },
 
