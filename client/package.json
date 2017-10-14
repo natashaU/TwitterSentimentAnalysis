@@ -4,7 +4,11 @@
   "private": true,
   "dependencies": {
     "axios": "^0.16.2",
+    "d3": "^4.11.0",
+    "d3-cloud": "^1.2.4",
+    "d3.layout.cloud": "^1.2.0",
     "react": "^16.0.0",
+    "react-d3-cloud": "^0.5.0",
     "react-dom": "^16.0.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.14"

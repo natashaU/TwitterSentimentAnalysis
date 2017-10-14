@@ -10,16 +10,27 @@ import InputForm from './InputForm';
 import TweetList from './TweetList';
 // rendering a list of tweet analysis.
 
+
+import { render } from 'react-dom';
+import WordCloud from 'react-d3-cloud';
+// what i need for word cloud package
+
+const fontSizeMapper = word => Math.log2(word.value) * 5;
+const rotate = word => word.value % 360;
+// what i need for word cloud package
+
 class Home extends Component {
 
 constructor(props) {
     super(props);
     this.state = {
         //resultPositive: '', // api data
-        resultNegative: [],
+        resultNegative: [], // all the negative key value pairs for word cloud in one array
         inputTwitterHandle: '', // sending user twitter handle to api
         showLoader: false, // loader to wait for API
         tweets: [], // the data we get back from the api, list of tweet analyzations
+        dataParsed: false, // have this so word cloud doesn't render before data is
+        //recieved from API and parsed
 
         inputTwitterHandleValue: '', // twitter handle to save in form
         inputPositiveValue: '', // positive value to save in form
@@ -100,63 +111,53 @@ handleTwitterFormSubmit(event) {
       if (key == "is negative about") {
         //console.log(results[key]);
         var myResults = results[key]
+        // array of objects that have words and weights
 
-        for (var item in myResults) {
-          //console.log(myResults[item])
-          var worstList = myResults[item]
-          //console.log(Object.keys(worstList))
-          var word_array = Object.keys(worstList)
-          //console.log("each word array", word_array)
+        //each object, create a new array and put the keys into a new array
+        //you have an array of keys
 
-          total_words = total_words.concat(word_array)
-          //console.log("each total", total_words)
+        //then another map to create the object to put into word cloud format
+        // use results[key] to get the value, text/value word cloud format.
+        const parsedWords = myResults.map((results)=>{
+          const keys = Object.keys(results)
+          return keys.map((key)=>{
+            return {text: key, value: results[key]}
+          })
+        }).reduce(function(a, b) { return a.concat(b); }, []);
+        this.setState({
+             resultNegative: parsedWords,
+             dataParsed: true
+     });
+        console.log(this.state.resultNegative)
 
-          //var wordList = myResults[item];
-          //console.log(Object.keys(wordList))
-          }
-          console.log("final", total_words)
+        // .reduce concat function to flatten array, so that arrays are not
+        // nested and they are all in one array
+
+        // parsed data formula to push words in one array, backup algorithm in case word cloud doesn't work.
+
+    //     for (var item in myResults) {
+    //       //console.log(myResults[item])
+    //       var worstList = myResults[item]
+    //       //console.log(Object.keys(worstList))
+    //       var word_array = Object.keys(worstList)
+    //       //console.log("each word array", word_array)
+
+    //       total_words = total_words.concat(word_array)
+    //       //console.log("each total", total_words)
+
+    //       //var wordList = myResults[item];
+    //       //console.log(Object.keys(wordList))
+    //       }
+    //       console.log("final", total_words)
+    //       this.setState({
+    //         resultNegative: total_words
+    // });
+
         }
 
-        //console.log("final", total_words)
-        //var myResults = results[key];
-        //myResults.map(item => {
-         // console.log(item.key)
-        //})
 
-        //(for var key in testing) {
-        //  console.log(testing[key])
-        //}
-
-        //for (var word in results[key]) {
-          //console.log(word)
-         // for (var item in word) {
-          //  console.log(word[item])
-          //}
-        //}
-
-      //}
     }
 
-
-
-    // var propValue;
-//for(var keyName in obj) {
-   // keyname = obj[keyName]
-
-    //console.log(keyname,key value);
-//}
-
-
-    //const resultPos = res.data.positiveData
-
-    //console.log(res.data.negativeData)
-    //const resultNeg = res.data.negativeData
-    //const result = calculateResult(res.data.data)
-     //console.log(result)
-    //this.setState({
-      //resultPositive: resultPos,
-     // resultNegative: resultNeg
-    //})
   }).catch(err => {
 
   console.log(err)
@@ -164,16 +165,6 @@ handleTwitterFormSubmit(event) {
 }
 
 
-//for (var key in output.result) {
-             //  //console.log(key)
-             //  if (key == "is positive about") {
-             //    console.log(output.result[key]);
-             //    var positiveData = output.result[key]
-
-             //  } if (key == "is negative about") {
-             //    console.log(output.result[key]);
-             //    var negativeData = output.result[key]
-             //  }
 
 
    handleInputFormSubmit(event) {
@@ -209,7 +200,12 @@ handleTwitterFormSubmit(event) {
     render() {
 
 
-      const loader = this.state.showLoader? < Loading/> : null;
+      const loader = this.state.showLoader ? < Loading/> : null;
+      const showWordCloud = this.state.dataParsed ? <WordCloud
+                        data={this.state.resultNegative}
+                        fontSizeMapper={fontSizeMapper}
+                        rotate={rotate}
+                          /> : null;
 
 
 
@@ -222,9 +218,13 @@ handleTwitterFormSubmit(event) {
                      inputTwitterHandleValue={this.state.inputTwitterHandleValue}
                      />
           {loader}
-          <button onClick={this.reload}>click here to reload</button>
+          <button onClick={this.reload}>Refresh Page</button>
+          <div className="wordCloud">
+          {showWordCloud}
+          </div>
         </div>
         <div className="App">
+
         <InputForm handleInputFormSubmit={this.handleInputFormSubmit}
                  inputPositiveValue={this.state.inputPostiveValue}
                  handleInputPositiveChange={this.handleInputPositiveChange}
@@ -244,6 +244,8 @@ handleTwitterFormSubmit(event) {
 
 export default Home;
 
+// <p>{this.state.resultNegative}</p>
+
 // put this under loader in render:
 /*let resultcontainer = ''
       if (this.state.result === ''){
@@ -256,7 +258,7 @@ export default Home;
        //   <p>{this.state.sentence}</p>
 
 
-
+// {this.drawWordCloud}
 
 
 

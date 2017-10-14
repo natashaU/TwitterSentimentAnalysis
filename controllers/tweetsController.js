@@ -12,7 +12,8 @@ module.exports = {
   console.log(req.body.inputTwitterHandle)
   let input =  {
     "query": req.body.inputTwitterHandle,
-    "auth":
+    "auth": {
+
            .algo("algo://diego/AnalyzeTwitterUser/0.1.6")
 
            .pipe(input)
