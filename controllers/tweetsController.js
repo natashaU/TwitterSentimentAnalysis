@@ -7,17 +7,14 @@ const Algorithmia = require("algorithmia");
 
 module.exports = {
 
-  getApi(req, res) {
+getApi(req, res) {
   console.log("getting api, inside function")
   console.log(req.body.inputTwitterHandle)
   let input =  {
     "query": req.body.inputTwitterHandle,
-    "auth": {
-
+    "auth":
            .algo("algo://diego/AnalyzeTwitterUser/0.1.6")
-
            .pipe(input)
-
            .then(function(output) {
              console.log(output);
              console.log('still good here 3')
@@ -37,6 +34,70 @@ module.exports = {
                  res.json({data:output.result})
              //}
            });
+
+
+// command question mark to uncomment
+
+const data = {
+  "data": {
+    "followers": 1472,
+    "following": 2767,
+    "is negative about": [
+      {
+        "fuck": 5,
+        "lost": 3,
+        "people": 4,
+        "asked": 2,
+        "lol": 2,
+        "make": 2,
+        "ripmarkusj": 2,
+        "school": 2,
+        "science": 2
+      },
+      {
+        "people": 3
+      }
+    ],
+    "is positive about": [
+      {
+        "asked": 2,
+        "lol": 2,
+        "make": 2,
+        "ripmarkusj": 2,
+        "school": 2,
+        "science": 2
+      },
+      {
+        "america": 2,
+        "born": 2,
+        "love": 2,
+        "open": 2
+      },
+      {
+        "dream": 2,
+        "hope": 2,
+        "love": 2,
+        "people": 2,
+        "state": 2,
+        "video": 2,
+        "won": 2
+      },
+      {
+        "change": 3,
+        "college": 2,
+        "guy": 2,
+        "high": 2,
+        "love": 2,
+        "people": 4,
+        "rich": 2
+      }
+    ],
+    "screen_name": "natty_t_ice"
+  }
+}
+
+          res.json(data)
+
 
            //var responseData = response.get().results[0].emotions;
              //res.json({data: responseData});

@@ -11,11 +11,9 @@ class TwitterHandleForm extends Component {
           type="text"
           value={this.props.inputTwitterHandleValue}
           name="content"
-          placeholder="Add Image Link Here"
+          placeholder="Twitter Handle"
           onChange={this.props.handleInputTwitterHandleChange}
-        />
-        <br/>
-        <button id="submit">Add Twitter Handle!</button>
+        /> <button className="handleBtn">Analyze Twitter Profile!</button>
       </form>
     );
   }

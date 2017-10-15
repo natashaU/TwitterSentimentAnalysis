@@ -3,8 +3,10 @@ import React, { Component } from 'react';
 class Loading extends Component {
   render() {
     return (
-      <div className="bgcolor">
-       <p>Loading...</p>
+      <div className="loadinganimation">
+      <br></br><br></br><br></br><br></br><br></br>
+
+       <p className="loadingfont">Loading...</p>
       </div>
     );
   };

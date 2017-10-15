@@ -15,7 +15,7 @@ import { render } from 'react-dom';
 import WordCloud from 'react-d3-cloud';
 // what i need for word cloud package
 
-const fontSizeMapper = word => Math.log2(word.value) * 5;
+const fontSizeMapper = word => Math.log2(word.value) * 40;
 const rotate = word => word.value % 360;
 // what i need for word cloud package
 
@@ -27,7 +27,7 @@ constructor(props) {
         //resultPositive: '', // api data
         resultNegative: [], // all the negative key value pairs for word cloud in one array
         inputTwitterHandle: '', // sending user twitter handle to api
-        showLoader: false, // loader to wait for API
+        showLoader: true, // loader to wait for API
         tweets: [], // the data we get back from the api, list of tweet analyzations
         dataParsed: false, // have this so word cloud doesn't render before data is
         //recieved from API and parsed
@@ -200,7 +200,7 @@ handleTwitterFormSubmit(event) {
     render() {
 
 
-      const loader = this.state.showLoader ? < Loading/> : null;
+      const loader = this.state.showLoader ? < Loading /> : null;
       const showWordCloud = this.state.dataParsed ? <WordCloud
                         data={this.state.resultNegative}
                         fontSizeMapper={fontSizeMapper}
@@ -209,19 +209,29 @@ handleTwitterFormSubmit(event) {
 
 
 
+
     return (
-      <div>
+      <div className="black">
         <div>
-          <h3>Analyze your twitter profile!</h3>
+        <h2 className="hater">ERR'DAY A HATER</h2>
+        <div className="tagline">
+        <h4 className="blue">Analyze your twitter profile with machine-learning to see all the things you hate!</h4>
+        </div>
+
+
+
+
+
+
           <TwitterHandleForm handleTwitterFormSubmit={this.handleTwitterFormSubmit}
                      handleInputTwitterHandleChange={this.handleInputTwitterHandleChange}
                      inputTwitterHandleValue={this.state.inputTwitterHandleValue}
                      />
           {loader}
-          <button onClick={this.reload}>Refresh Page</button>
           <div className="wordCloud">
           {showWordCloud}
           </div>
+          <button onClick={this.reload}>Refresh Page</button>
         </div>
         <div className="App">
 
@@ -259,6 +269,11 @@ export default Home;
 
 
 // {this.drawWordCloud}
+
+// <h2 className="hater">A</h2>
+    //    <h2 className="hater">HATER</h2>
+
+    //<h3 className="blue">Analyze your twitter profile!</h3>
 
 
 
