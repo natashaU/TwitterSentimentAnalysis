@@ -12,7 +12,14 @@ getApi(req, res) {
   console.log(req.body.inputTwitterHandle)
   let input =  {
     "query": req.body.inputTwitterHandle,
-    "auth":
+    "auth": { "app_key": process.env.APP_KEY ,
+        "app_secret": process.env.APP_SECRET,
+        "oauth_token": process.env.TOKEN,
+        "oauth_token_secret": process.env.TOKEN_SECRET
+      }
+    }
+
+        Algorithmia.client(process.env.CLIENT_KEY)
            .algo("algo://diego/AnalyzeTwitterUser/0.1.6")
            .pipe(input)
            .then(function(output) {
@@ -38,7 +45,7 @@ getApi(req, res) {
 
 // command question mark to uncomment
 
-const data = {
+/*const data = {
   "data": {
     "followers": 1472,
     "following": 2767,
@@ -94,9 +101,9 @@ const data = {
     ],
     "screen_name": "natty_t_ice"
   }
-}
+} */
 
-          res.json(data)
+          //res.json(data)
 
 
            //var responseData = response.get().results[0].emotions;

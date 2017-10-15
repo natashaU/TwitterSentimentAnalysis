@@ -41,10 +41,18 @@ componentDidMount(){
     } else return <Loading />
   }
 
+  // render() {
+    //return (
+      //<div className="tweetlist">
+
   render() {
     return (
-      <div className="tweetlist">
+      <div>
+       <h1>Your List of Analyzed Twitter Profiles</h1>
+       <br></br>
+      <ul className="comments">
        {this.renderTweetList()}
+       </ul>
        <Link id="tweetLink" to={`/home`}>Home</Link>
       </div>
     );

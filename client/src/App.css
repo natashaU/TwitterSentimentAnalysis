@@ -1,3 +1,273 @@
+
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
+
+Link {
+  text-decoration: none;
+}
+
+/* save form */
+.saveForm {
+  /*position: relative;*/
+  margin-top: 20%;
+}
+
+.inputformula {
+    margin-left:auto;
+    margin-right:auto;
+    width: 343px;
+    height: 333px;
+    padding:30px;
+    border: 1px solid rgba(0,0,0,.2);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    background: rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 0 13px 3px rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 13px 3px rgba(0,0,0,.5);
+    box-shadow: 0 0 13px 3px rgba(0,0,0,.5);
+    overflow: hidden;
+}
+
+textarea{
+    background: rgba(255, 255, 255, 0.4) url(http://luismruiz.com/img/gemicon_message.png) no-repeat scroll 16px 16px;
+    width: 276px;
+    height: 110px;
+    border: 1px solid rgba(255,255,255,.6);
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    display:block;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size:18px;
+    color:#fff;
+    padding-left:45px;
+    padding-right:20px;
+    padding-top:12px;
+    margin-bottom:20px;
+    overflow:hidden;
+}
+
+.inputformula input {
+    width: 276px;
+    height: 48px;
+    border: 1px solid rgba(255,255,255,.4);
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    display:block;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size:18px;
+    color:#fff;
+    padding-left:20px;
+    padding-right:20px;
+    margin-bottom:20px;
+}
+
+.inputformula input[type=submit] {
+    cursor:pointer;
+}
+
+.inputformula input.name {
+    background: rgba(255, 255, 255, 0.4) url(http://luismruiz.com/img/gemicon_name.png) no-repeat scroll 16px 16px;
+    padding-left:45px;
+}
+
+
+
+.message {
+    background: rgba(255, 255, 255, 0.4) url(http://luismruiz.com/img/gemicon_message.png) no-repeat scroll 16px 16px;
+    padding-left:45px;
+}
+
+::-webkit-input-placeholder {
+    color: #fff;
+}
+
+:-moz-placeholder{
+    color: #fff;
+}
+
+::-moz-placeholder {
+    color: #fff;
+}
+
+:-ms-input-placeholder {
+    color: #fff;
+}
+
+.inputformula:focus, textarea:focus {
+    background-color: rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 0 5px 1px rgba(255,255,255,.5);
+    -webkit-box-shadow: 0 0 5px 1px rgba(255,255,255,.5);
+    box-shadow: 0 0 5px 1px rgba(255,255,255,.5);
+    overflow: hidden;
+}
+
+.btnform {
+    width: 138px;
+    height: 44px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    float:right;
+    border: 1px solid #253737;
+    background: #416b68;
+    background: -webkit-gradient(linear, left top, left bottom, from(#6da5a3), to(#416b68));
+    background: -webkit-linear-gradient(top, #6da5a3, #416b68);
+    background: -moz-linear-gradient(top, #6da5a3, #416b68);
+    background: -ms-linear-gradient(top, #6da5a3, #416b68);
+    background: -o-linear-gradient(top, #6da5a3, #416b68);
+    background-image: -ms-linear-gradient(top, #6da5a3 0%, #416b68 100%);
+    padding: 10.5px 21px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: rgba(255,255,255,0.1) 0 1px 0, inset rgba(255,255,255,0.7) 0 1px 0;
+    -moz-box-shadow: rgba(255,255,255,0.1) 0 1px 0, inset rgba(255,255,255,0.7) 0 1px 0;
+    box-shadow: rgba(255,255,255,0.1) 0 1px 0, inset rgba(255,255,255,0.7) 0 1px 0;
+    text-shadow: #333333 0 1px 0;
+    color: #e1e1e1;
+}
+
+.btnform:hover {
+    border: 1px solid #253737;
+    text-shadow: #333333 0 1px 0;
+    background: #416b68;
+    background: -webkit-gradient(linear, left top, left bottom, from(#77b2b0), to(#416b68));
+    background: -webkit-linear-gradient(top, #77b2b0, #416b68);
+    background: -moz-linear-gradient(top, #77b2b0, #416b68);
+    background: -ms-linear-gradient(top, #77b2b0, #416b68);
+    background: -o-linear-gradient(top, #77b2b0, #416b68);
+    background-image: -ms-linear-gradient(top, #77b2b0 0%, #416b68 100%);
+    color: #fff;
+ }
+
+.btnform:active {
+    margin-top:1px;
+    text-shadow: #333333 0 -1px 0;
+    border: 1px solid #253737;
+    background: #6da5a3;
+    background: -webkit-gradient(linear, left top, left bottom, from(#416b68), to(#416b68));
+    background: -webkit-linear-gradient(top, #416b68, #609391);
+    background: -moz-linear-gradient(top, #416b68, #6da5a3);
+    background: -ms-linear-gradient(top, #416b68, #6da5a3);
+    background: -o-linear-gradient(top, #416b68, #6da5a3);
+    background-image: -ms-linear-gradient(top, #416b68 0%, #6da5a3 100%);
+    color: #fff;
+    -webkit-box-shadow: rgba(255,255,255,0) 0 1px 0, inset rgba(255,255,255,0.7) 0 1px 0;
+    -moz-box-shadow: rgba(255,255,255,0) 0 1px 0, inset rgba(255,255,255,0.7) 0 1px 0;
+    box-shadow: rgba(255,255,255,0) 0 1px 0, inset rgba(255,255,255,0.7) 0 1px 0;
+   }
+
+
+
+
+
+
+
+/* for rendering list */
+.listbody {
+  font-family: Georgia, serif;
+  margin: 20px 0;
+  padding: 25px 25px;
+  border: 2px solid #505050;
+  border-radius: 10px;
+}
+
+.comments {
+  max-width: 600px;
+  min-width: 280px;
+  margin: 0 auto;
+  list-style-type: none;
+  text-align: left;
+}
+
+.li{
+  border-bottom: dotted 1px #E1E0E0;
+  margin: 0 auto 50px auto;
+}
+
+.li:last-child {border: none;}
+
+.hatethings {
+  float: right;
+  line-height: 50px;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.user {
+  font: italic 18px Georgia;
+  margin-bottom: 25px;
+}
+
+
+/*.li div.user {
+  font: italic 18px Georgia;
+  margin-bottom: 25px;
+} */
+
+ .twittername {
+  color: #9F1708;
+  margin-left: 5px;
+  text-transform: lowercase;
+  font-weight: 600;
+}
+
+ .twittername:hover {color: black;}
+
+.twittername {
+  -webkit-transition: .25s color linear;
+  -moz-transition: .25s color linear;
+  -o-transition: .25s color linear;
+  transition: .25s color linear;
+}
+.twitternamehover {
+  -webkit-transition: .25s color linear;
+  -moz-transition: .25s color linear;
+  -o-transition: .25s color linear;
+  transition: .25s color linear;
+}
+
+.emoji{
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-width: 0;
+  vertical-align: middle;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -o-border-radius: 50px;
+  border-radius: 50px;
+
+}
+
+.wordList  {
+  font-size: 20px;
+  margin-bottom: 50px;
+  line-height: 24px;
+  /*text-indent: 25px;*/
+
+  display:block!important;
+
+}
+
+
+
+
+
+
+
+
 @import url('https://fonts.googleapis.com/css?family=PT+Sans');
 *{
   font-size:18px;
@@ -72,7 +342,7 @@ body {
   text-align: center;
   color: #fff;
   font-family: "arial";
-  letter-spacing: 0.4em;
+  letter-spacing: 0.1em;
   overflow: visible;
 }
 
@@ -432,7 +702,9 @@ body {
 
 }
 
-/* twitter animation adapted from https://codepen.io/pankajparashar/pen/tsCJL */
+/* twitter animation adapted and edited from https://codepen.io/pankajparashar/pen/tsCJL
+and https://codepen.io/Rakeda/pen/AaoKd
+*/
 
 .blue {
   color: white;

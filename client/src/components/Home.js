@@ -27,7 +27,7 @@ constructor(props) {
         //resultPositive: '', // api data
         resultNegative: [], // all the negative key value pairs for word cloud in one array
         inputTwitterHandle: '', // sending user twitter handle to api
-        showLoader: true, // loader to wait for API
+        showLoader: false, // loader to wait for API
         tweets: [], // the data we get back from the api, list of tweet analyzations
         dataParsed: false, // have this so word cloud doesn't render before data is
         //recieved from API and parsed
@@ -231,7 +231,6 @@ handleTwitterFormSubmit(event) {
           <div className="wordCloud">
           {showWordCloud}
           </div>
-          <button onClick={this.reload}>Refresh Page</button>
         </div>
         <div className="App">
 
@@ -254,6 +253,8 @@ handleTwitterFormSubmit(event) {
 
 export default Home;
 
+
+// <button onClick={this.reload}>Refresh Page</button>
 // <p>{this.state.resultNegative}</p>
 
 // put this under loader in render:
