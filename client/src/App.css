@@ -8,7 +8,7 @@ Link {
 /* save form */
 .saveForm {
   /*position: relative;*/
-  margin-top: 20%;
+  margin-top: 40%;
 }
 
 .inputformula {
@@ -29,6 +29,8 @@ Link {
     -webkit-box-shadow: 0 0 13px 3px rgba(0,0,0,.5);
     box-shadow: 0 0 13px 3px rgba(0,0,0,.5);
     overflow: hidden;
+    border: 2px solid #505050;
+    border-radius: 10px;
 }
 
 textarea{
