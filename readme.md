@@ -26,7 +26,7 @@ The user enters in a random Twitter handle and then they can see all the things 
 * PostgreSQL
 * Express.js
 * Twitter API
-* D3
+* d3
 * Diego opinion-mining API
 * Javascript
 * CSS
