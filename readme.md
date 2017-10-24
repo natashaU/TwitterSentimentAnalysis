@@ -7,6 +7,8 @@
 
 ** The App ** This app was inspired by the Voight-Kampff machine in Blade Runner, which is a sentiment analysis test to determine if a being is a human or replicant, based on their positive word assocations. The name is inspired by the album "Hater" by early 2000s, underrated, nu-metal band, Korn. 
 
+[CHECK OUT THE APP HERE](https://obscure-spire-27745.herokuapp.com/)
+
 ![Landing Page](./natty_t_ice.png)
 
 ## How It Works
